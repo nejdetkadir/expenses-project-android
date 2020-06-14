@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     public static HashMap<String,Double> monthsInfo = new HashMap<>();
     public static ArrayList<String> daysName = new ArrayList<>();
     public static HashMap<String,Double> daysInfo = new HashMap<>();
+    public static double totalPrice = 0;
+    public static String isWeekend;
     private String baseURL = "https://api.nejdetkadirbektas.com/";
     Retrofit retrofit;
 
@@ -62,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleResponse(List<ExpensesModel> expensesModelList) {
         expensesModelArrayList = new ArrayList<>(expensesModelList);
+        double weekendTotal = 0;
         for (int i = 1; i < expensesModelArrayList.size(); i++) {
             double price = Double.valueOf(expensesModelArrayList.get(i).price);
+            totalPrice += price;
             if (categoriesInfo.get(expensesModelArrayList.get(i).category) != null) {
                 categoriesInfo.put(expensesModelArrayList.get(i).category, categoriesInfo.get(expensesModelArrayList.get(i).category) + price);
             } else {
@@ -84,6 +88,15 @@ public class MainActivity extends AppCompatActivity {
                 daysInfo.put(expensesModelArrayList.get(i).getDay(), Double.valueOf(expensesModelArrayList.get(i).price));
                 daysName.add(expensesModelArrayList.get(i).getDay());
             }
+
+            if (expensesModelArrayList.get(i).isWeekend()) {
+                weekendTotal += price;
+            }
+        }
+        if (weekendTotal > (totalPrice - weekendTotal)) {
+            isWeekend = "Haftasonları";
+        } else {
+            isWeekend = "Haftaiçleri";
         }
         ViewPager viewPager = findViewById(R.id.ViewPager);
         TabLayout tabLayout = findViewById(R.id.Tablayout);
