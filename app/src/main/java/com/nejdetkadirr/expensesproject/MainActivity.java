@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<ExpensesModel> expensesModelArrayList;
     public static ArrayList<String> categoriesName = new ArrayList<>();
     public static HashMap<String,Double> categoriesInfo = new HashMap<>();
+    public static ArrayList<String> monthsName = new ArrayList<>();
+    public static HashMap<String,Double> monthsInfo = new HashMap<>();
     private String baseURL = "https://api.nejdetkadirbektas.com/";
     Retrofit retrofit;
 
@@ -65,6 +67,13 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 categoriesInfo.put(expensesModelArrayList.get(i).category, Double.valueOf(expensesModelArrayList.get(i).price));
                 categoriesName.add(expensesModelArrayList.get(i).category);
+            }
+
+            if (monthsInfo.get(expensesModelArrayList.get(i).getMonth()) != null) {
+                monthsInfo.put(expensesModelArrayList.get(i).getMonth(), monthsInfo.get(expensesModelArrayList.get(i).getMonth()) + price);
+            } else {
+                monthsInfo.put(expensesModelArrayList.get(i).getMonth(), Double.valueOf(expensesModelArrayList.get(i).price));
+                monthsName.add(expensesModelArrayList.get(i).getMonth());
             }
         }
         ViewPager viewPager = findViewById(R.id.ViewPager);

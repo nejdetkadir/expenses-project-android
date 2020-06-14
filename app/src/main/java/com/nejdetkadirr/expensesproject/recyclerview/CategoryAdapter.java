@@ -48,8 +48,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.DataHo
         TextView price;
         public DataHolder(@NonNull View itemView) {
             super(itemView);
-            category = itemView.findViewById(R.id.RecyclerViewCategoryName);
-            price = itemView.findViewById(R.id.RecyclerViewCategoryPrice);
+            category = itemView.findViewById(R.id.RecyclerViewTitleName);
+            price = itemView.findViewById(R.id.RecyclerViewTitlePrice);
         }
     }
 }
