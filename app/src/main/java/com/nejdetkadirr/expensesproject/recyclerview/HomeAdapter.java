@@ -30,15 +30,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.DataHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull HomeAdapter.DataHolder holder, int position) {
-        holder.id.setText(expensesModelArrayList.get(position).id);
-        holder.date.setText(expensesModelArrayList.get(position).date);
-        holder.category.setText(expensesModelArrayList.get(position).category);
-        holder.price.setText(expensesModelArrayList.get(position).price);
+        holder.id.setText(expensesModelArrayList.get(position+1).id);
+        holder.date.setText(expensesModelArrayList.get(position+1).date);
+        holder.category.setText(expensesModelArrayList.get(position+1).category);
+        holder.price.setText(expensesModelArrayList.get(position+1).price);
     }
 
     @Override
     public int getItemCount() {
-        return expensesModelArrayList.size();
+        return expensesModelArrayList.size()-1;
     }
 
     class DataHolder extends RecyclerView.ViewHolder {
