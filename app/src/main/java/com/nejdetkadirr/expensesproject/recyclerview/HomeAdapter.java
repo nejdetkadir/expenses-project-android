@@ -54,5 +54,4 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.DataHolder> {
             price = itemView.findViewById(R.id.RecyclerViewPrice);
         }
     }
-
 }

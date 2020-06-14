@@ -14,6 +14,7 @@ import com.nejdetkadirr.expensesproject.service.ExpensesAPI;
 import com.nejdetkadirr.expensesproject.service.ExpensesModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     CompositeDisposable compositeDisposable;
     public static ArrayList<ExpensesModel> expensesModelArrayList;
+    public static ArrayList<String> categoriesName = new ArrayList<>();
+    public static HashMap<String,Double> categoriesInfo = new HashMap<>();
     private String baseURL = "https://api.nejdetkadirbektas.com/";
     Retrofit retrofit;
 
@@ -34,9 +37,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
         Gson gson = new GsonBuilder().setLenient().create();
         retrofit = new Retrofit.Builder()
                 .baseUrl(baseURL)
@@ -58,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleResponse(List<ExpensesModel> expensesModelList) {
         expensesModelArrayList = new ArrayList<>(expensesModelList);
+        for (int i = 1; i < expensesModelArrayList.size(); i++) {
+            double price = Double.valueOf(expensesModelArrayList.get(i).price);
+            if (categoriesInfo.get(expensesModelArrayList.get(i).category) != null) {
+                categoriesInfo.put(expensesModelArrayList.get(i).category, categoriesInfo.get(expensesModelArrayList.get(i).category) + price);
+            } else {
+                categoriesInfo.put(expensesModelArrayList.get(i).category, Double.valueOf(expensesModelArrayList.get(i).price));
+                categoriesName.add(expensesModelArrayList.get(i).category);
+            }
+        }
         ViewPager viewPager = findViewById(R.id.ViewPager);
         TabLayout tabLayout = findViewById(R.id.Tablayout);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
