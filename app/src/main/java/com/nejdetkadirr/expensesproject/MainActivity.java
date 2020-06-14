@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     CompositeDisposable compositeDisposable;
-    ArrayList<ExpensesModel> expensesModelArrayList;
+    public static ArrayList<ExpensesModel> expensesModelArrayList;
     private String baseURL = "https://api.nejdetkadirbektas.com/";
     Retrofit retrofit;
 
@@ -35,11 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ViewPager viewPager = findViewById(R.id.ViewPager);
-        TabLayout tabLayout = findViewById(R.id.Tablayout);
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
+
 
         Gson gson = new GsonBuilder().setLenient().create();
         retrofit = new Retrofit.Builder()
@@ -62,9 +58,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleResponse(List<ExpensesModel> expensesModelList) {
         expensesModelArrayList = new ArrayList<>(expensesModelList);
-        for (ExpensesModel e: expensesModelArrayList) {
-            System.out.println(e.category);
-        }
+        ViewPager viewPager = findViewById(R.id.ViewPager);
+        TabLayout tabLayout = findViewById(R.id.Tablayout);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
 }
