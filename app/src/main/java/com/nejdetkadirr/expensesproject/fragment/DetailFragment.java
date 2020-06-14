@@ -49,6 +49,7 @@ public class DetailFragment extends Fragment {
         details.add("En fazla harcama " + maxCatPrice + " kategorisine ait.");
         String minMonthPrice = "";
         String maxMonthPrice = "";
+        order = 0;
         Map<String, Double> minMonth = sortByValue(MainActivity.monthsInfo);
         for (Map.Entry<String, Double> month : minMonth.entrySet()) {
             if (order == 0) {
