@@ -67,6 +67,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:id="@+id/MonthRecyclerView"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/DayName"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginEnd="40dp"
+                        android:text="GÜN" />
+
+                    <TextView
+                        android:id="@+id/DayTotalPrice"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="TOPLAM TUTAR" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/DayRecyclerView"/>
         </LinearLayout>
 
 </ScrollView>

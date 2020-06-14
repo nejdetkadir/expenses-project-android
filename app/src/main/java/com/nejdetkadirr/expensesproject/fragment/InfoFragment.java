@@ -14,12 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.nejdetkadirr.expensesproject.MainActivity;
 import com.nejdetkadirr.expensesproject.R;
 import com.nejdetkadirr.expensesproject.recyclerview.CategoryAdapter;
+import com.nejdetkadirr.expensesproject.recyclerview.DayAdapter;
 import com.nejdetkadirr.expensesproject.recyclerview.HomeAdapter;
 import com.nejdetkadirr.expensesproject.recyclerview.MonthAdapter;
 
 public class InfoFragment extends Fragment {
     CategoryAdapter categoryAdapter;
     MonthAdapter monthAdapter;
+    DayAdapter dayAdapter;
     public static InfoFragment newInstance() {
         return new InfoFragment();
     }
@@ -39,6 +41,10 @@ public class InfoFragment extends Fragment {
         monthAdapter = new MonthAdapter(MainActivity.monthsName,MainActivity.monthsInfo);
         recyclerViewMonth.setAdapter(monthAdapter);
 
+        RecyclerView recyclerViewDay = rootView.findViewById(R.id.DayRecyclerView);
+        recyclerViewDay.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        dayAdapter = new DayAdapter(MainActivity.daysName,MainActivity.daysInfo);
+        recyclerViewDay.setAdapter(dayAdapter);
 
         return rootView;
     }
