@@ -16,32 +16,32 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/RecyclerViewID"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="İŞLEM NO" />
-
-            <TextView
-                android:id="@+id/RecyclerViewDate"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="TARİH" />
-
-            <TextView
-                android:id="@+id/RecyclerViewCategory"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="KATEGORİ" />
+                android:text="İŞLEM NO"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="100dp"
-                android:id="@+id/RecyclerViewPrice"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="TARİH"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="KATEGORİ"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="100dp"
                 android:gravity="center"
                 android:layout_height="match_parent"
-                android:text="TUTAR"/>
+                android:text="TUTAR"
+                android:textStyle="bold"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
