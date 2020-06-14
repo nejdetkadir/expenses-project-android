@@ -1,11 +1,15 @@
 package com.nejdetkadirr.expensesproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.View;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.nejdetkadirr.expensesproject.fragment.ViewPagerAdapter;
 import com.nejdetkadirr.expensesproject.service.ExpensesAPI;
 import com.nejdetkadirr.expensesproject.service.ExpensesModel;
 
@@ -30,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ViewPager viewPager = findViewById(R.id.ViewPager);
+        TabLayout tabLayout = findViewById(R.id.Tablayout);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
 
         Gson gson = new GsonBuilder().setLenient().create();
         retrofit = new Retrofit.Builder()
