@@ -1,12 +1,7 @@
 # Expenses Mobile
 -------
-Android application of [expenses-project](https://github.com/nejdetkadir/expenses-project).
-<<<<<<< HEAD
-[Download](docs/app.apk) APK.
-# Screenshoots from application
-=======
+Android application of [expenses-project](https://github.com/nejdetkadir/expenses-project).[Download](docs/app.apk) APK.
 # Screenshots from application
->>>>>>> 81dfa1807489afd1e4968cfada4c37da23b6c4e9
 -------
 ![Database](docs/Screenshot_1.png)
 ![Database](docs/Screenshot_2.png)
