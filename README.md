@@ -1,7 +1,7 @@
 # Expenses Mobile
 -------
 Android application of [expenses-project](https://github.com/nejdetkadir/expenses-project).
-# Screenshoots from application
+# Screenshots from application
 -------
 ![Database](docs/Screenshot_1.png)
 ![Database](docs/Screenshot_2.png)
